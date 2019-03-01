@@ -2,8 +2,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 1.Download the source code
 
-2.At the directory run - npm init
+2.Type "npm init" in the terminal
 
-3.Start the game with - npm start
+3.Type "npm start" to start the game
   
 Have fun.:)

@@ -91,10 +91,6 @@ class App extends Component {
 
   async startGame() {
     
-    if(this.state.isRunning) {
-      return;
-    }
-
     this.setState({result: "", isRunning: true, isFinished: false});
     
     let array = this.createOrder();

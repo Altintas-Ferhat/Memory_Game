@@ -3,6 +3,14 @@ import React from 'react';
 import './Settings.css';
 
 const settings = (props) => {
+
+    let {isRunning} = props;
+    let buttonText = "Start";
+
+    if(isRunning) {
+        buttonText = "Stop";
+    }
+
     return (
         <div className="Settings">
             <div className="section">
@@ -35,7 +43,7 @@ const settings = (props) => {
                     <option value="7">7</option>
                 </select>
             </div>
-            <button onClick={props.start}>Start</button>
+            <button onClick={!isRunning ? props.start : props.stop}>{buttonText}</button>
         </div>
     );
 }

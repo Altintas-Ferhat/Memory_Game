@@ -19,6 +19,7 @@ class App extends Component {
     result: ""
   }
 
+  //Sets the changes
   changeHandler = (type, event) => {
     
     if(this.state.isRunning || !this.state.isFinished) {
@@ -41,12 +42,13 @@ class App extends Component {
 
     let {blocks, counter} = this.state;
 
+    //Loosing
     if(!(key === blocks[counter])) {
       this.setState({isRunning: false, isFinished: true, counter: 0, result: "Try again."});
       return;
     }
 
-    //Winning scenario
+    //Winning
     if(counter === blocks.length - 1) {
       
       this.setState(prevState => {
@@ -61,6 +63,7 @@ class App extends Component {
     });
   }
 
+  //Creates a random order
   createFlow = () => {
     let array = this.state.blocks.splice();
     let {level, columns, rows} = this.state;

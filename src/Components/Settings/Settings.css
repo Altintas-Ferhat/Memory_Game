@@ -1,0 +1,40 @@
+.Settings {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    top: 200px;
+    left: 50px;
+    background: linear-gradient(#e023d1, #8a2790);
+    color: #4e004e;
+    border: 2px solid #510656;
+}
+
+.Settings .section {
+    display: flex;
+    height: 20px;
+    align-items: center;
+    margin: 15px;
+}
+
+.Settings .section h4 {
+    margin-right: 10px;
+}
+
+.Settings .section select {
+    width: 80px;
+    background-color: #7f1586;
+    border: none;
+    color: #fe7aff;
+}
+
+.Settings button {
+    margin-top: 20px;
+    width: 120px;
+    height: 30px;
+    background-color: #7f1586;
+    border: 1px solid black;
+    color: #e65edc;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+}

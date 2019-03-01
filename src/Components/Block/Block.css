@@ -1,0 +1,11 @@
+.Board ul li{
+    display: inline-block;
+    margin: 5px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+}
+
+.Board ul li:hover {
+    background-color: rgb(80, 13, 84) !important;
+}

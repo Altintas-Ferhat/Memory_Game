@@ -1,0 +1,24 @@
+.App {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  background: linear-gradient(rgb(239, 49, 224), rgb(191, 4, 177));
+}
+
+.App h2 {
+  color: #670163;
+}
+
+.App .result {
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.App .level {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+}

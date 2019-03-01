@@ -16,7 +16,8 @@ class App extends Component {
     counter: 0,
     isRunning: false,
     isFinished: true,
-    result: ""
+    result: "",
+    timeouts: []
   }
 
   //Sets the changes
@@ -64,7 +65,7 @@ class App extends Component {
   }
 
   //Creates a random order
-  createFlow = () => {
+  createOrder = () => {
     let array = this.state.blocks.splice();
     let {level, columns, rows} = this.state;
     
@@ -80,8 +81,11 @@ class App extends Component {
   }
 
   wait = (time) => {
+    
     return new Promise((resolve) => {
-      setTimeout(resolve, time);
+      this.setState(prevState => {
+        return {timeouts: prevState.timeouts.concat(setTimeout(resolve, time))};
+      });
     });
   }
 
@@ -93,7 +97,7 @@ class App extends Component {
 
     this.setState({result: "", isRunning: true, isFinished: false});
     
-    let array = this.createFlow();
+    let array = this.createOrder();
     let time = this.state.time * 1000;
 
     for(let i = 0; i < array.length; i++) {
@@ -104,14 +108,25 @@ class App extends Component {
     };
 
     this.setState({isRunning: false});
+    console.log(this.state.timeouts);
     
+  }
+
+  stopGame = () => {
+    
+    //Clear timeouts
+    this.state.timeouts.forEach((timeout) => {
+      clearTimeout(timeout);
+    });
+
+    this.setState({isRunning: false, isFinished: true, counter: 0, current: null});
   }
 
   render() {
     return (
       <div className="App">
         <Board rows={this.state.rows} current={this.state.current} columns={this.state.columns} click={this.clickHandler}/>
-        <Settings change={this.changeHandler} start={() => this.startGame()}/>
+        <Settings change={this.changeHandler} start={() => this.startGame()} stop={this.stopGame} isRunning={this.state.isRunning}/>
         <h2 className="result">{this.state.result}</h2>
         <h2 className="level">Level {this.state.level}</h2>
       </div>

@@ -104,7 +104,6 @@ class App extends Component {
     };
 
     this.setState({isRunning: false});
-    console.log(this.state.timeouts);
     
   }
 
@@ -115,7 +114,7 @@ class App extends Component {
       clearTimeout(timeout);
     });
 
-    this.setState({isRunning: false, isFinished: true, counter: 0, current: null});
+    this.setState({isRunning: false, isFinished: true, counter: 0, current: null, timeouts: []});
   }
 
   render() {

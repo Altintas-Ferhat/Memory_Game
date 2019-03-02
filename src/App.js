@@ -45,7 +45,7 @@ class App extends Component {
 
     //Loosing
     if(!(key === blocks[counter])) {
-      this.setState({isRunning: false, isFinished: true, counter: 0, result: "Try again."});
+      this.setState({isRunning: false, isFinished: true, counter: 0, result: "Oops. Try a new one.:)"});
       return;
     }
 
